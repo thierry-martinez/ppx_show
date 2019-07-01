@@ -5,7 +5,9 @@
 (license MIT)
 (maintainers "Thierry Martinez <thierry.martinez@inria.fr>")
 (authors "Thierry Martinez <thierry.martinez@inria.fr>")
-(source (uri "https://gitlab.inria.fr/tmartine/ppx_show"))
+(source (uri "git+https://gitlab.inria.fr/tmartine/ppx_show"))
+(homepage "https://gitlab.inria.fr/tmartine/ppx_show")
+(bug_reports "https://gitlab.inria.fr/tmartine/ppx_show")
 (documentation "https://gitlab.inria.fr/tmartine/ppx_show")
 
 (package
