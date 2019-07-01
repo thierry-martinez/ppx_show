@@ -12,6 +12,9 @@ tests := $(notdir $(wildcard $(tests_dir)/*))
 all :
 	dune build
 
+ppx_show.opam : dune-project
+	dune build ppx_show.opam
+
 .PHONY : clean
 
 clean :
