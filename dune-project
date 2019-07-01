@@ -9,6 +9,7 @@
 (homepage "https://gitlab.inria.fr/tmartine/ppx_show")
 (bug_reports "https://gitlab.inria.fr/tmartine/ppx_show")
 (documentation "https://gitlab.inria.fr/tmartine/ppx_show")
+(version "0.2.0beta")
 
 (package
  (name ppx_show)
