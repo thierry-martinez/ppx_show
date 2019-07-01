@@ -10,5 +10,7 @@
 
 (package
  (name ppx_show)
- (depends ppxlib))
+ (depends
+   (ppxlib (>= 0.8.0))
+   (stdcompat (>= 9))))
 
