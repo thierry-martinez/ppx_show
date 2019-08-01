@@ -108,8 +108,7 @@ let pp_cases_of_cases ?(path = []) kind cases =
           Some (Tools.pat_var_of_string binder),
           begin
             pp_open_box 1 ::
-            pp_print_string ("(" ^ constr) ::
-            pp_print_space () ::
+            pp_print_string (constr ^ " (") ::
             printer (Tools.ident_of_string binder) @
             [pp_print_string ")"; pp_close_box ()]
           end
