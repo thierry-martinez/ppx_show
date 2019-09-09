@@ -15,6 +15,6 @@
  (name ppx_show)
  (synopsis "OCaml PPX deriver for deriving show based on ppxlib")
  (depends
-   (ppxlib (>= 0.8.0))
+   (ppxlib (>= 0.9.0))
    (stdcompat (>= 9))))
 
