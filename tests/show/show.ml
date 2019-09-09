@@ -29,7 +29,7 @@ let () =
 
 let () =
   string_match __LINE__
-    (Format.asprintf "@[%a@]" [%show: int option] (Some 1)) "(Some 1)"
+    (Format.asprintf "@[%a@]" [%show: int option] (Some 1)) "Some (1)"
 
 let () =
   string_match __LINE__
@@ -42,7 +42,7 @@ let () =
 let () =
   string_match __LINE__
     (Format.asprintf "@[%a@]" [%show: (int,  unit) result] (Error ()))
-    "(Error ())"
+    "Error (())"
 
 let () =
   string_match __LINE__
@@ -59,18 +59,18 @@ let () =
 
 let () =
   string_match __LINE__
-    (Format.asprintf "@[%a@]" [%show: [`A | `B of int]] (`B 1)) "(`B 1)"
+    (Format.asprintf "@[%a@]" [%show: [`A | `B of int]] (`B 1)) "`B (1)"
 
 let () =
   string_match __LINE__
     (Format.asprintf "@[%a@]" [%show: [`A | `B of int * int]] (`B (1, 2)))
-    "(`B (1, 2))"
+    "`B ((1, 2))"
 
 let () =
   string_match __LINE__ (Format.asprintf "@[%a@]" pp_enum A) "Show.A"
 
 let () =
-  string_match __LINE__ (Format.asprintf "@[%a@]" pp_enum (B 1)) "(Show.B 1)"
+  string_match __LINE__ (Format.asprintf "@[%a@]" pp_enum (B 1)) "Show.B (1)"
 
 let () =
   string_match __LINE__
@@ -79,18 +79,19 @@ let () =
 let () =
   string_match __LINE__
     (Format.asprintf "@[%a@]" pp_enum (D { a = 1; b = "foo" }))
-    "(Show.D { a = 1; b = \"foo\" })"
+    "Show.D ({ a = 1; b = \"foo\" })"
 
 type 'a poly = A of enum | B of 'a poly * 'a
   [@@deriving show { with_path = false }]
 
 let () =
   string_match __LINE__
-    (Format.asprintf "@[%a@]" (pp_poly pp_enum) (A A)) "(A Show.A)"
+    (Format.asprintf "@[%a@]" (pp_poly pp_enum) (A A)) "A (Show.A)"
 
 let () =
   string_match __LINE__
-    (Format.asprintf "@[%a@]" (pp_poly pp_enum) (B (A A, A))) "B ((A Show.A), Show.A)"
+    (Format.asprintf "@[%a@]" (pp_poly pp_enum) (B (A A, A)))
+      "B (A (Show.A), Show.A)"
 
 let pp_int fmt _ = Format.pp_print_string fmt "a"
 
