@@ -8,7 +8,7 @@ directly as a `ppxlib` deriver.
 ## Usage
 
 `ppx_show` can be used with [`dune`] by using the [`preprocess`] field.
-`ppx_show_runtime` has to be added to runtime [`libraries`].
+`ppx_show.runtime` has to be added to runtime [`libraries`].
 
 [`dune`]: https://github.com/ocaml/dune
 [`preprocess`]: https://dune.readthedocs.io/en/latest/concepts.html#preprocessing-with-ppx-rewriters
@@ -17,7 +17,7 @@ directly as a `ppxlib` deriver.
 ```lisp
 (executable
   ...
-  (preprocess (pps metapp.ppx))
-  (libraries ppx_show_runtime)
+  (preprocess (pps ppx_show))
+  (libraries ppx_show.runtime)
   ...)
 ```
