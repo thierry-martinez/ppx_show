@@ -21,3 +21,12 @@ directly as a `ppxlib` deriver.
   (libraries ppx_show.runtime)
   ...)
 ```
+
+Using `[@@deriving show]` on a type `t` creates the following two functions:
+
+```ocaml
+val pp : Format.formatter -> t -> unit
+val show : t -> string
+```
+
+By default, constructor and fields identifiers are prefixed with the current module path. This behaviour can be turned off by writting `[@@deriving show { with_path = false }]` instead.
