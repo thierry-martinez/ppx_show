@@ -29,4 +29,4 @@ val pp : Format.formatter -> t -> unit
 val show : t -> string
 ```
 
-By default, constructor and fields identifiers are prefixed with the current module path. This behaviour can be turned off by writting `[@@deriving show { with_path = false }]` instead.
+By default, constructor and field identifiers are prefixed with the current module path. This behaviour can be turned off by writing `[@@deriving show { with_path = false }]` instead.
